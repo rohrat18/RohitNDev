@@ -1,1 +1,38 @@
 
+<html>
+        <style>
+        
+        </style>
+        <script src="https://infa--rohitn.sandbox.my.site.com/LWC/lightning/lightning.out.js" type="text/javascript"></script>
+        <div data-lightning-out="true"></div>
+        <script>
+            const appName = 'c:LightningOutApp'
+            const componentName = 'c:accountManageApex'
+            const lightningEndPoint = 'https://infa--rohitn.sandbox.my.site.com/LWC'
+            const targetElement = document.querySelector('[data-lightning-out]');
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            console.log('Id-->'+id);       
+        // Setting the id value in component attributes
+            const componentAttributes = {
+            recordId: id
+        };
+            $Lightning.use(
+                appName,
+                function(){
+                    $Lightning.createComponent(
+                        componentName,
+                        componentAttributes,
+                        targetElement,
+                        function(cmp){
+                            console.log('Lightning Component Created');
+                             console.log('Id-->'+id);
+                        }
+                    );
+                },
+                lightningEndPoint
+            );
+
+            
+        </script>
+    </html>
