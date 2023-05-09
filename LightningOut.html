@@ -12,7 +12,8 @@
             const targetElement = document.querySelector('[data-lightning-out]');
             const urlParams = new URLSearchParams(window.location.search);
             const id = urlParams.get('id');
-            console.log('Id-->'+id);       
+            const msg =urlParams.get('message');
+                  
         // Setting the id value in component attributes
             const componentAttributes = {
             recordId: id
@@ -26,7 +27,8 @@
                         targetElement,
                         function(cmp){
                             console.log('Lightning Component Created');
-                             console.log('Id-->'+id);
+                             console.log('Id-->'+id+ 'Message-->'+msg);
+                                
                         }
                     );
                 },
